@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+       {% block title %} BLOG {% endblock%}
+    </title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0 auto;
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            background-color: #e2e2e2;
+            align-items: center;
+            padding: 8px;
+            margin: 0;
+        }
+        .header-container-left{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-container-right{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo{
+            text-transform: capitalize;
+            text-shadow: #e2e2e2;
+            color: black;
+            font-size: 20px;
+            font-weight: 800;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            border-top: 2px solid black;
+            border-left: 2px solid black;
+            padding: 4px;
+
+        }
+        nav{
+            display: flex;
+            gap: 8px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a,
+        .header-container-right a {
+            text-decoration: none;
+            color: darkcyan;
+        }
+
+        footer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: darkcyan;
+            color: #fff;
+            padding: 8px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a{
+            text-decoration: none;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 8px;
+        }
+
+        .footer-container{
+            width: 50%;
+            text-align: center;
+            padding-bottom: 14px;
+        }
+
+        .main-container{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <section class="header-container-left">
+            <p class="logo">BLOG</p>
+            <nav>
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'blog:about' %}">About</a>
+                <a href="{% url 'blog:reviews' %}">Reviews</a>
+                <a href="{% url 'blog:contact' %}">Contact</a>
+            </nav>
+        </section>
+        <section class="header-container-right">
+            <a href="#">New Post</a>
+            <a href="{% url 'admin:index' %}">Admin</a>
+        </section>
+    </header>
+    <main class="main-container">
+        {% block body_block %}
+
+        {% endblock %}
+    </main>
+    <footer>
+        <div class="footer-container">
+            <h2>Do you want to share your own recipes?</h2>
+            <h2>Get exposure and join us!</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quibusdam sunt dicta reiciendis adipisci quia, debitis quo fugiat. Fugit, commodi!</p>
+            <a href="">Let's talk</a>
+        </div>
+    </footer>
+</body>
+</html>
