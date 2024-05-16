@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}ReaDView {% endblock %}</title>
+  </head>
+  <body>
+    {% comment %} #Raito meaning: light in Japanese {% endcomment %}
+    <header>
+        <section class="header-container-left">
+            <div>
+                <a class="logo" href="{% url 'index' %}">Rauto</a>
+                <p>Fantastic books, unimaginable prices</p>
+            </div>
+            <form action="" method="get">
+                <input type="text" placeholder="Hey, what is the book you are looking for?" aria-label="search-bar" id="search-bar">
+                <input type="submit">
+            </form>
+            <div>
+                <a href="{% url 'bookstore:login' %}">Login</a>
+                <a href="{% url 'bookstore:register' %}">Sign up</a>
+            </div>
+
+        </section>
+    </header>
+    <nav>
+        <a href="{% url 'index' %}">Books</a>
+        <a href="{% url 'bookstore:review' %}">Reviews</a>
+        <a href="{% url 'bookstore:cart' %}">Cart</a>
+    </nav>
+    <main class="main-container">
+        {% block body_block %} 
+        
+        {% endblock %}
+    </main>
+    <footer>
+      <div class="footer-container">
+        <h2>Do you want to share your own book reviews?</h2>
+        <h2>Get exposure and <a href="{% url 'bookstore:review' %}">join us!</a></h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+          quibusdam sunt dicta reiciendis adipisci quia, debitis quo fugiat.
+          Fugit, commodi!
+        </p>
+        <a href="">Let's talk</a>
+      </div>
+    </footer>
+  </body>
+</html>
