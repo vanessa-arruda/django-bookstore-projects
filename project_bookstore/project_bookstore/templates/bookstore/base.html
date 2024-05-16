@@ -3,31 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}ReaDView {% endblock %}</title>
+    <link rel="stylesheet" href="static/css/base.css">
+    <title>{% block title %}Rauto {% endblock %}</title>
   </head>
   <body>
     {% comment %} #Raito meaning: light in Japanese {% endcomment %}
     <header>
-        <section class="header-container-left">
-            <div>
-                <a class="logo" href="{% url 'index' %}">Rauto</a>
-                <p>Fantastic books, unimaginable prices</p>
-            </div>
-            <form action="" method="get">
-                <input type="text" placeholder="Hey, what is the book you are looking for?" aria-label="search-bar" id="search-bar">
-                <input type="submit">
-            </form>
-            <div>
-                <a href="{% url 'bookstore:login' %}">Login</a>
-                <a href="{% url 'bookstore:register' %}">Sign up</a>
-            </div>
-
-        </section>
+        <div class="logo-container">
+            <a class="logo" href="{% url 'index' %}">Rauto Bookstore</a>
+            <p>Fantastic books, unimaginable prices</p>
+        </div>
+        <form action="" method="get" class="search-bar-container">
+            <input type="text" placeholder="Hey, what is the book you are looking for?" aria-label="search-bar" id="search-bar">
+            <button type="submit" id="search-bar-btn">Go</button>
+        </form>
+        <div class="auth-container">
+            <a href="{% url 'bookstore:login' %}">Login</a>
+            <a href="{% url 'bookstore:register' %}">Sign up</a>
+        </div>
     </header>
     <nav>
         <a href="{% url 'index' %}">Books</a>
         <a href="{% url 'bookstore:review' %}">Reviews</a>
-        <a href="{% url 'bookstore:cart' %}">Cart</a>
+        <a href="{% url 'bookstore:cart' %}">Cart (0)</a>
     </nav>
     <main class="main-container">
         {% block body_block %} 
