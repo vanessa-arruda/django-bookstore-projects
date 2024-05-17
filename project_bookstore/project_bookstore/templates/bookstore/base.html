@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="static/css/base.css">
+    <link rel="stylesheet" href="/static/css/base.css">
     <title>{% block title %}Rauto {% endblock %}</title>
   </head>
   <body>
@@ -42,6 +42,7 @@
           Fugit, commodi!
         </p>
         <a href="">Let's talk</a>
+        <a href="{% url 'admin:index' %}">Login as Admin</a>
       </div>
     </footer>
   </body>

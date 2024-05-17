@@ -2,6 +2,13 @@
 {% block title %} Raito|Signup {% endblock %} 
 {% block body_block %}
 <section>
-  <p>this is Signup</p>
+  <h1>Create your account</h1>
+  <p>With an account, you can manage your purchases and review our books!</p>
+  <p>It's quite simple!</p>
+  <form action="" method="POST" class="form-signup-container">
+    {{form.as_p}}
+    {% csrf_token %}
+    <input type="submit">
+  </form>
 </section>
 {% endblock %}
