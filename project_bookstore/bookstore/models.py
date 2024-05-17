@@ -12,7 +12,7 @@ class Book(models.Model):
     cover_image = models.ImageField()
 
     def __str__(self):
-        return f"{self.title}, {self.author}, {self.description}, {str(self.price)}, {str(self.publication_date)}"
+        return f"Title: {self.title}, Author: {self.author}, Price: {str(self.price)} SEK, Publication Date: {str(self.publication_date)}"
     
 #Admin models - Users here
 class User(models.Model):
@@ -21,6 +21,6 @@ class User(models.Model):
     password = models.CharField(max_length=20)
 
     def __str__(self):
-        return f"Username: {self.user_name}, Email: {self.user_email}"
+        return f"Username: {self.name} | Email: {self.email}"
 
 #Admin models - Books here
