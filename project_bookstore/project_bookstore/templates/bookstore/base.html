@@ -3,39 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/base.css" />
     <title>{% block title %}Rauto {% endblock %}</title>
   </head>
   <body>
     {% comment %} #Raito meaning: light in Japanese {% endcomment %}
     <header>
+      <div class="header-nav-container">
         <div class="logo-container">
-            <a class="logo" href="{% url 'index' %}">Rauto Bookstore</a>
-            <p>Fantastic books, unimaginable prices</p>
+          <a class="logo" href="{% url 'index' %}">Rauto Bookstore</a>
+          <p>Fantastic books, unimaginable prices</p>
         </div>
         <form action="" method="get" class="search-bar-container">
-            <input type="text" placeholder="Hey, what is the book you are looking for?" aria-label="search-bar" id="search-bar">
-            <button type="submit" id="search-bar-btn">Go</button>
+          <input
+            type="text"
+            placeholder="Hey, what is the book you are looking for?"
+            aria-label="search-bar"
+            id="search-bar"
+          />
+          <button type="submit" id="search-bar-btn">Go</button>
         </form>
         <div class="auth-container">
-            <a href="{% url 'bookstore:login' %}">Login</a>
-            <a href="{% url 'bookstore:register' %}">Sign up</a>
+          <a href="{% url 'bookstore:login' %}">Login</a>
+          <a href="{% url 'bookstore:register' %}">Sign up</a>
         </div>
-    </header>
+      </div>
     <nav>
-        <a href="{% url 'index' %}">Books</a>
-        <a href="{% url 'bookstore:review' %}">Reviews</a>
-        <a href="{% url 'bookstore:cart' %}">Cart (0)</a>
+      <a href="{% url 'index' %}">Books</a>
+      <a href="{% url 'bookstore:review' %}">Reviews</a>
+      <a href="{% url 'bookstore:cart' %}">Cart (0)</a>
     </nav>
-    <main class="main-container">
-        {% block body_block %} 
-        
-        {% endblock %}
-    </main>
+    </header>
+    
+    <main class="main-container">{% block body_block %} {% endblock %}</main>
     <footer>
       <div class="footer-container">
         <h2>Do you want to share your own book reviews?</h2>
-        <h2>Get exposure and <a href="{% url 'bookstore:review' %}">join us!</a></h2>
+        <h2>
+          Get exposure and <a href="{% url 'bookstore:review' %}">join us!</a>
+        </h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
           quibusdam sunt dicta reiciendis adipisci quia, debitis quo fugiat.

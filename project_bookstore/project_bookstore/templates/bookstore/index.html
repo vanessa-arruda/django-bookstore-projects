@@ -1,6 +1,28 @@
 {% extends 'bookstore/base.html' %} 
+{% load static %}
 {% block body_block %}
-<section>
-    <p>this is index</p>
+<section class="index-main-container">
+    <h1>All books in the store today</h1>
+    <div class="books-container">
+        {% if book_list %}
+        {% for book in book_list %}
+        <div class="book-card">
+            <h3 class="book-title">{{ book.title }}</h3>
+            <h4 class="book-author">Author: {{ book.author }}</h4>
+            <img src="{{ book.cover_image.url }}" alt="book cover image">
+            <p class="bold">Price {{ book.price }} SEK</p>
+            <div class="book-btns">
+                <a href="">Buy</a>
+                <a href="">Review</a>
+            </div>
+            <p class="description">Description: {{ book.description }}</p>
+            <p>Publication Date: {{ book.publication_date }}</p>
+
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No books available now.</p>
+        {% endif %}
+    </div>
 </section>
 {% endblock %}

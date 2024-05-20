@@ -1,10 +1,13 @@
 from django.shortcuts import render
-from bookstore import forms
+from bookstore import forms, models
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'bookstore/index.html')
+    books_view = models.Book.objects.all()
+    # books_view = models.Book.objects.order_by('title')
+    book_dict = {'book_list':books_view}
+    return render(request, 'bookstore/index.html', context=book_dict)
 
 def register(request):
     form = forms.NewUserForm()
@@ -17,6 +20,7 @@ def register(request):
             return index(request)
         else:
             print('Error - form invalid!')
+    
     return render(request,'bookstore/registration.html', {'form':form})
 
 def login(request):
